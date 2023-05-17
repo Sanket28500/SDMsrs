@@ -1,0 +1,90 @@
+Online Project Management System
+
+1. Introduction
+
+The Online Project Management System is a web-based application that enables organizations and
+project teams to plan, track, and manage projects. The system provides
+platform for creating projects, assigning tasks, tracking progress,and generating reports
+it suggessts an effective and enhance communication, and improve overall project efficiency.
+
+2. Functional Requirements
+
+1) User Management : 
+The system shall provide user registration and authentication functionality.
+Users shall be able to create accounts and log in using their credentials.
+The system shall support different user roles, such as administrators, project managers, and team members.
+
+
+2) Project Creation and Management
+Project managers shall be able to create new projects and define project details (e.g., project name, start date, end date, description).
+Projects shall have a unique identifier and can be assigned to specific teams.Project managers shall have the ability to update project details 
+and archive completed projects.
+
+
+3) Task Management
+Project managers shall be able to create tasks within projects, assign them to team members, and set due dates.
+Tasks shall have attributes such as task name, description, priority, and status.
+Team members shall be able to update the status of assigned tasks, mark them as completed, and add comments or attachments.
+
+
+4) Project Tracking and Reporting
+The system shall provide real-time project progress tracking.
+Users shall be able to view project timelines, milestones, and task dependencies.
+The system shall generate reports on project status, task completion rates, and resource utilization.
+
+5) Document Management
+The system shall support document sharing and version control for project-related files.
+Users shall be able to upload, access, and manage project documents securely.
+The system shall maintain a revision history of documents and allow users to restore previous versions if needed.
+
+3. Non-Functional Requirements
+
+1) Security
+User authentication and sensitive information shall be securely stored and transmitted.
+Access to projects, tasks, and documents shall be controlled based on user roles and permissions.
+The system shall implement encryption and secure communication protocols to protect data.
+
+2) Performance
+The system shall handle multiple concurrent users and provide responsive performance.
+Response times for user interactions, such as creating tasks or generating reports, shall be within acceptable limits.
+
+3) User Interface
+The system shall have an intuitive and user-friendly interface.
+The user interface shall be responsive and compatible with different devices and screen sizes.
+
+Conclusion
+
+In conclusion, the Online Project Management System is designed to provide organizations and project teams with a comprehensive
+web-based platform for efficient project planning, tracking, and management.
+The system's functional requirements encompass user
+management, project creation and management, task management,document management. 
+Non-functional requirements include security measures, performance optimization, a user-friendly interface, and
+integrations with external services. By implementing this system and ultimately improve project efficiency and success.
+
+Tale: Project Management
+
+create table user(
+userid int primary key,
+uname varchar(30),
+password varchar(30) not null,
+email varchar(30) unique,
+role varchar(30) not null
+);
+
+
+create table project(
+projectid int primary key,
+projname varchar(50) not null,
+startdate date not null,
+ebddate date not null,
+description varchar(100)
+);
+
+create table task(
+taskid int primary key,
+taskname varchar(50) not null,
+duedate date not null,
+myprid int,
+myusrid int,
+constraint foreign key fk_myprid(myprid) references project (projectid) on update cascade on delete set null
+);
